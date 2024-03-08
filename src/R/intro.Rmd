@@ -1,12 +1,12 @@
 ---
-title: "Module 12 - Etivities and Tasks in R"
+title: "Module 12 - Intro"
 author: "Jannis Vollmer"
 output: html_document
 ---
 
 ## Introduction
 
-In this notebook, I'll document all tasks and etivities related to R programming from module 12
+In this notebook, I'll document all tasks and etivities related to R programming from module 12 intro
 
 ### Defining the Function sayHello
 
