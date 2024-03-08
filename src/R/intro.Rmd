@@ -8,13 +8,16 @@ output: html_document
 
 In this notebook, I'll document all tasks and etivities related to R programming from module 12 intro
 
-### Defining the Function sayHello
+### Defining the parameter name and Function sayHello
 
-First, define the `sayHello` function in R. This function will simply return the name "Jannis".
-
+First, define the `name` parameter in R. This parameter will be the name that should be returned.
+```{r}
+name <- "Jannis"
+```
+Then, define the `sayHello` function in R. This function will simply return the name "Jannis".
 ```{r}
 sayHello <- function() {
-  return("Jannis")
+  return(name)
 }
 ```
 
