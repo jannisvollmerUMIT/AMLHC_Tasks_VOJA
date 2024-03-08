@@ -1,0 +1,30 @@
+---
+title: "Module 12 - Etivities and Tasks in R"
+author: "Jannis Vollmer"
+output: html_document
+---
+
+## Introduction
+
+In this notebook, I'll document all tasks and etivities related to R programming from module 12
+
+### Defining the Function sayHello
+
+First, define the `sayHello` function in R. This function will simply return the name "Jannis".
+
+```{r}
+sayHello <- function() {
+  return("Jannis")
+}
+```
+
+### Calling the Function sayHello
+
+Now that the function is defined, call it once to see the output.
+
+```{r}
+# Calling the sayHello function
+sayHello()
+```
+
+The function returned the name "Jannis" as expected.
