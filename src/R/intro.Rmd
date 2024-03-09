@@ -10,22 +10,20 @@ In this notebook, I'll document all tasks and etivities related to R programming
 
 ### Defining the function sayHello
 
-Define the `sayHello` function in R. This function will simply return the name "Jannis".
+First, I define the `sayHello` function in R. This function will simply return the input parameter "name" together with a greeting.
 ```{r}
 sayHello <- function(name) {
   greeting <- paste("Hello ", name, "!")
   return(greeting)
 }
-
 ```
 
 ### Calling the Function sayHello
 
-Now that the function is defined, call it once with my name "Jannis" to see the output.
+Now that the function is defined, I call it once with my name "Jannis" to see the output.
 
 ```{r}
-# Calling the sayHello function with my own name
 sayHello("Jannis")
 ```
 
-The function returned the name "Jannis" as expected.
+The function returned the String "Hello Jannis !" as expected.

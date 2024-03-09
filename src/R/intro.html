@@ -361,8 +361,9 @@ display: none;
 programming from module 12 intro</p>
 <div id="defining-the-function-sayhello" class="section level3">
 <h3>Defining the function sayHello</h3>
-<p>Define the <code>sayHello</code> function in R. This function will
-simply return the name “Jannis”.</p>
+<p>First, I define the <code>sayHello</code> function in R. This
+function will simply return the input parameter “name” together with a
+greeting.</p>
 <pre class="r"><code>sayHello &lt;- function(name) {
   greeting &lt;- paste(&quot;Hello &quot;, name, &quot;!&quot;)
   return(greeting)
@@ -370,12 +371,11 @@ simply return the name “Jannis”.</p>
 </div>
 <div id="calling-the-function-sayhello" class="section level3">
 <h3>Calling the Function sayHello</h3>
-<p>Now that the function is defined, call it once with my name “Jannis”
-to see the output.</p>
-<pre class="r"><code># Calling the sayHello function with my own name
-sayHello(&quot;Jannis&quot;)</code></pre>
+<p>Now that the function is defined, I call it once with my name
+“Jannis” to see the output.</p>
+<pre class="r"><code>sayHello(&quot;Jannis&quot;)</code></pre>
 <pre><code>## [1] &quot;Hello  Jannis !&quot;</code></pre>
-<p>The function returned the name “Jannis” as expected.</p>
+<p>The function returned the String “Hello Jannis !” as expected.</p>
 </div>
 </div>
 
