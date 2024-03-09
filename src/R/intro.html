@@ -360,22 +360,21 @@ display: none;
 <p>In this notebook, I’ll document all tasks and etivities related to R
 programming from module 12 intro</p>
 <div id="defining-the-function-sayhello" class="section level3">
-<h3>Defining the Function sayHello</h3>
-<p>First, define the <code>name</code> parameter in R. This parameter
-will be the name that should be returned.</p>
-<pre class="r"><code>name &lt;- &quot;Jannis&quot;</code></pre>
-<p>Then, define the <code>sayHello</code> function in R. This function
-will simply return the name “Jannis”.</p>
-<pre class="r"><code>sayHello &lt;- function() {
-  return(name)
+<h3>Defining the function sayHello</h3>
+<p>Define the <code>sayHello</code> function in R. This function will
+simply return the name “Jannis”.</p>
+<pre class="r"><code>sayHello &lt;- function(name) {
+  greeting &lt;- paste(&quot;Hello &quot;, name, &quot;!&quot;)
+  return(greeting)
 }</code></pre>
 </div>
 <div id="calling-the-function-sayhello" class="section level3">
 <h3>Calling the Function sayHello</h3>
-<p>Now that the function is defined, call it once to see the output.</p>
-<pre class="r"><code># Calling the sayHello function
-sayHello()</code></pre>
-<pre><code>## [1] &quot;Jannis&quot;</code></pre>
+<p>Now that the function is defined, call it once with my name “Jannis”
+to see the output.</p>
+<pre class="r"><code># Calling the sayHello function with my own name
+sayHello(&quot;Jannis&quot;)</code></pre>
+<pre><code>## [1] &quot;Hello  Jannis !&quot;</code></pre>
 <p>The function returned the name “Jannis” as expected.</p>
 </div>
 </div>
