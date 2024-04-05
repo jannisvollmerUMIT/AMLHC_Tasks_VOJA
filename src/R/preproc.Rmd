@@ -53,3 +53,8 @@ Our dataset contains primary numeric features, except the first column (country 
   igs <- information.gain(class ~ ., data_diabetes)
   head(igs)
 ```
+
+## Boxplot Visualization of one highest and one lowest
+```{r}
+  boxplot(plas ~ class, data_diabetes)
+```
