@@ -1,0 +1,14 @@
+---
+title: "Preprocessing And Visualization"
+author: "Jannis Vollmer"
+date: "2024-04-05"
+output: html_document
+---
+
+# Data Preprocessing
+
+## Load data and get an overview
+
+```{r}
+  data <- read.csv("../data sets/food.csv")
+```
