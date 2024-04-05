@@ -8,7 +8,21 @@ output: html_document
 # Data Preprocessing
 
 ## Load data and get an overview
+Our dataset contains primary numeric features, except the first column (country name)
 
 ```{r}
-  data <- read.csv("../data sets/food.csv")
+  data <- read.csv("../data sets/food.csv", row.names = 1)
+  head(data)
 ```
+
+## Preprocess data using z-transformation 
+```{r}
+  data_scale <- scale(data)
+  head(data_scale)
+```
+
+## Perform a principal component analysis
+```{r}
+  pca <- princomp(data_scale)
+```
+
