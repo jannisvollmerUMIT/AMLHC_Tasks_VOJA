@@ -5,7 +5,11 @@ date: "2024-04-05"
 output: html_document
 ---
 
-# Data Preprocessing
+```{r}
+  require(FSelector)
+```
+
+# Unsupervised Data Preprocessing
 
 ## Load data and get an overview
 Our dataset contains primary numeric features, except the first column (country name)
@@ -26,3 +30,26 @@ Our dataset contains primary numeric features, except the first column (country 
   pca <- princomp(data_scale)
 ```
 
+## Plot the reduced dataset
+```{r}
+  data_red <- pca$scores[,1:2]
+  plot(data_red[,"Comp.1"], data_red[,"Comp.2"])
+```
+
+# Supervised Data Preprocessing
+## Load data and get an overview
+
+```{r}
+  data_diabetes <- read.csv("../data sets/diabetes.csv")
+  data_diabetes_num <- data_diabetes[,-9]
+  iqrs <- apply(data_diabetes_num, 2, function(x){IQR(x)})
+  q1 <- apply(data_diabetes_num, 2, function(x){quantile(x,0.25)})
+  q3 <- apply(data_diabetes_num, 2, function(x){quantile(x,0.75)})
+  # if value < q1 - 3 * IQR or value > q3 + 3 * IQR
+```
+
+## Supervised Feature Selection
+```{r}
+  igs <- information.gain(class ~ ., data_diabetes)
+  head(igs)
+```
