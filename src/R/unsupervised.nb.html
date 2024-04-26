@@ -1754,6 +1754,16 @@ display: none;
 <!-- rnb-text-begin -->
 <div id="unsupervised-learning" class="section level1">
 <h1>Unsupervised Learning</h1>
+<div id="required-packages" class="section level2">
+<h2>Required Packages</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICBpbnN0YWxsLnBhY2thZ2VzKFwiY2x1c3RlckNyaXRcIilcbmBgYCJ9 -->
+<pre class="r"><code>  install.packages(&quot;clusterCrit&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
 <div id="load-and-scale-data" class="section level2">
 <h2>Load and scale data</h2>
 <!-- rnb-text-end -->
@@ -1763,10 +1773,39 @@ display: none;
   fds &lt;- scale(data)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="clustering" class="section level2">
+<h2>Clustering</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICBzZXQuc2VlZCgxMjMpXG4gIGttYzIgPC0ga21lYW5zKGZkcywgMilcbiAgY2kyIDwtIGNsdXN0ZXJDcml0OjppbnRDcml0ZXJpYShmZHMsa21jMiRjbHVzdGVyLCBcIlNpbGhvdWV0dGVcIilcbiAgY2kyXG4gIFxuICBrbWMzIDwtIGttZWFucyhmZHMsIDMpXG4gIGNpMyA8LSBjbHVzdGVyQ3JpdDo6aW50Q3JpdGVyaWEoZmRzLGttYzMkY2x1c3RlciwgXCJTaWxob3VldHRlXCIpXG4gIGNpM1xuICBcbiAga21jNCA8LSBrbWVhbnMoZmRzLCA0KVxuICBjaTQgPC0gY2x1c3RlckNyaXQ6OmludENyaXRlcmlhKGZkcyxrbWM0JGNsdXN0ZXIsIFwiU2lsaG91ZXR0ZVwiKVxuICBjaTRcbiAgXG4gIGttYzUgPC0ga21lYW5zKGZkcywgNSlcbiAgY2k1IDwtIGNsdXN0ZXJDcml0OjppbnRDcml0ZXJpYShmZHMsa21jNSRjbHVzdGVyLCBcIlNpbGhvdWV0dGVcIilcbiAgY2k1XG5gYGAifQ== -->
+<pre class="r"><code>  set.seed(123)
+  kmc2 &lt;- kmeans(fds, 2)
+  ci2 &lt;- clusterCrit::intCriteria(fds,kmc2$cluster, &quot;Silhouette&quot;)
+  ci2
+  
+  kmc3 &lt;- kmeans(fds, 3)
+  ci3 &lt;- clusterCrit::intCriteria(fds,kmc3$cluster, &quot;Silhouette&quot;)
+  ci3
+  
+  kmc4 &lt;- kmeans(fds, 4)
+  ci4 &lt;- clusterCrit::intCriteria(fds,kmc4$cluster, &quot;Silhouette&quot;)
+  ci4
+  
+  kmc5 &lt;- kmeans(fds, 5)
+  ci5 &lt;- clusterCrit::intCriteria(fds,kmc5$cluster, &quot;Silhouette&quot;)
+  ci5</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>k = 4 has the lowest value out of the 4 options, so we will proceed
+with kmc4.</p>
+<!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiVW5zdXBlcnZpc2VkIGxlYXJuaW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgojIFVuc3VwZXJ2aXNlZCBMZWFybmluZwoKIyMgTG9hZCBhbmQgc2NhbGUgZGF0YQoKYGBge3J9CiAgZGF0YSA8LSByZWFkLmNzdigiLi4vZGF0YSBzZXRzL2Zvb2QuY3N2Iiwgcm93Lm5hbWVzID0gMSkKICBmZHMgPC0gc2NhbGUoZGF0YSkKYGBg</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiVW5zdXBlcnZpc2VkIGxlYXJuaW5nIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgojIFVuc3VwZXJ2aXNlZCBMZWFybmluZwoKIyMgUmVxdWlyZWQgUGFja2FnZXMKYGBge3J9CiAgaW5zdGFsbC5wYWNrYWdlcygiY2x1c3RlckNyaXQiKQpgYGAKCiMjIExvYWQgYW5kIHNjYWxlIGRhdGEKCmBgYHtyfQogIGRhdGEgPC0gcmVhZC5jc3YoIi4uL2RhdGEgc2V0cy9mb29kLmNzdiIsIHJvdy5uYW1lcyA9IDEpCiAgZmRzIDwtIHNjYWxlKGRhdGEpCmBgYAoKIyMgQ2x1c3RlcmluZwpgYGB7cn0KICBzZXQuc2VlZCgxMjMpCiAga21jMiA8LSBrbWVhbnMoZmRzLCAyKQogIGNpMiA8LSBjbHVzdGVyQ3JpdDo6aW50Q3JpdGVyaWEoZmRzLGttYzIkY2x1c3RlciwgIlNpbGhvdWV0dGUiKQogIGNpMgogIAogIGttYzMgPC0ga21lYW5zKGZkcywgMykKICBjaTMgPC0gY2x1c3RlckNyaXQ6OmludENyaXRlcmlhKGZkcyxrbWMzJGNsdXN0ZXIsICJTaWxob3VldHRlIikKICBjaTMKICAKICBrbWM0IDwtIGttZWFucyhmZHMsIDQpCiAgY2k0IDwtIGNsdXN0ZXJDcml0OjppbnRDcml0ZXJpYShmZHMsa21jNCRjbHVzdGVyLCAiU2lsaG91ZXR0ZSIpCiAgY2k0CiAgCiAga21jNSA8LSBrbWVhbnMoZmRzLCA1KQogIGNpNSA8LSBjbHVzdGVyQ3JpdDo6aW50Q3JpdGVyaWEoZmRzLGttYzUkY2x1c3RlciwgIlNpbGhvdWV0dGUiKQogIGNpNQpgYGAKayA9IDQgaGFzIHRoZSBsb3dlc3QgdmFsdWUgb3V0IG9mIHRoZSA0IG9wdGlvbnMsIHNvIHdlIHdpbGwgcHJvY2VlZCB3aXRoIGttYzQuCgo=</div>
 
 
 

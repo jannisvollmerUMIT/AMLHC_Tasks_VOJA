@@ -5,9 +5,36 @@ output: html_notebook
 
 # Unsupervised Learning
 
+## Required Packages
+```{r}
+  install.packages("clusterCrit")
+```
+
 ## Load and scale data
 
 ```{r}
   data <- read.csv("../data sets/food.csv", row.names = 1)
   fds <- scale(data)
 ```
+
+## Clustering
+```{r}
+  set.seed(123)
+  kmc2 <- kmeans(fds, 2)
+  ci2 <- clusterCrit::intCriteria(fds,kmc2$cluster, "Silhouette")
+  ci2
+  
+  kmc3 <- kmeans(fds, 3)
+  ci3 <- clusterCrit::intCriteria(fds,kmc3$cluster, "Silhouette")
+  ci3
+  
+  kmc4 <- kmeans(fds, 4)
+  ci4 <- clusterCrit::intCriteria(fds,kmc4$cluster, "Silhouette")
+  ci4
+  
+  kmc5 <- kmeans(fds, 5)
+  ci5 <- clusterCrit::intCriteria(fds,kmc5$cluster, "Silhouette")
+  ci5
+```
+k = 4 has the lowest value out of the 4 options, so we will proceed with kmc4.
+
