@@ -38,3 +38,11 @@ output: html_notebook
 ```
 k = 4 has the lowest value out of the 4 options, so we will proceed with kmc4.
 
+## PCA and Visualization
+```{r}
+  pca <- princomp(fds)
+  data_red <- pca$scores[,1:2]
+  data_red <- data_red * -1
+  plot(data_red[,"Comp.1"], data_red[,"Comp.2"], col=(kmc4$cluster))
+  text(data_red[,"Comp.1"], data_red[,"Comp.2"], labels = rownames(fds), cex = 0.5)
+```
