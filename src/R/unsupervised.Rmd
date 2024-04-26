@@ -7,7 +7,8 @@ output: html_notebook
 
 ## Required Packages
 ```{r}
-  install.packages("clusterCrit")
+  require("clusterCrit")
+  require("gplots")
 ```
 
 ## Load and scale data
@@ -45,4 +46,15 @@ k = 4 has the lowest value out of the 4 options, so we will proceed with kmc4.
   data_red <- data_red * -1
   plot(data_red[,"Comp.1"], data_red[,"Comp.2"], col=(kmc4$cluster))
   text(data_red[,"Comp.1"], data_red[,"Comp.2"], labels = rownames(fds), cex = 0.5)
+```
+
+### Hierarchical Clustering
+```{r}
+  hcf <- hclust(dist(fds))
+  plot(hcf)
+```
+
+### Heatmap
+```{r}
+  heatmap.2(fds, scale="none")
 ```
