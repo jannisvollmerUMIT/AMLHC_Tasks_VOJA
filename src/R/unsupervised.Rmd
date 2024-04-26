@@ -9,6 +9,7 @@ output: html_notebook
 ```{r}
   require("clusterCrit")
   require("gplots")
+  require("fpc")
 ```
 
 ## Load and scale data
@@ -57,4 +58,11 @@ k = 4 has the lowest value out of the 4 options, so we will proceed with kmc4.
 ### Heatmap
 ```{r}
   heatmap.2(fds, scale="none")
+```
+
+## Density based clustering
+```{r}
+  dbc <- dbscan(fds, eps=2, MinPts = 3)
+  plot(data_red[,"Comp.1"], data_red[,"Comp.2"], col=(dbc$cluster))
+  text(data_red[,"Comp.1"], data_red[,"Comp.2"], labels = rownames(fds), cex = 0.5)
 ```
