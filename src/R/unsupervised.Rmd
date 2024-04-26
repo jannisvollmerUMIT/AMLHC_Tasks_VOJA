@@ -21,24 +21,29 @@ output: html_notebook
 
 ## Clustering
 ```{r}
-  set.seed(123)
-  kmc2 <- kmeans(fds, 2)
-  ci2 <- clusterCrit::intCriteria(fds,kmc2$cluster, "Silhouette")
-  ci2
+
+# Initialize lists to store k-means models and criteria indices
+set.seed(123)
+kmc <- list()
+ci <- numeric()
+
+# Loop over different numbers of clusters
+for (k in 2:5) {
+
+  # Perform k-means clustering
+  kmc[[k]] <- kmeans(fds, k)
+  ci[k] <- clusterCrit::intCriteria(fds, kmc[[k]]$cluster, "Silhouette")
   
-  kmc3 <- kmeans(fds, 3)
-  ci3 <- clusterCrit::intCriteria(fds,kmc3$cluster, "Silhouette")
-  ci3
-  
+  # Print the current k value and criterion index for each k
+  print(k)
+  print(ci[k])
+}
+
+#result: k = 4 has the lowest value out of the 4 options
   kmc4 <- kmeans(fds, 4)
-  ci4 <- clusterCrit::intCriteria(fds,kmc4$cluster, "Silhouette")
-  ci4
-  
-  kmc5 <- kmeans(fds, 5)
-  ci5 <- clusterCrit::intCriteria(fds,kmc5$cluster, "Silhouette")
-  ci5
+  ci <- clusterCrit::intCriteria(fds,kmc4$cluster, "Silhouette")
+  ci
 ```
-k = 4 has the lowest value out of the 4 options, so we will proceed with kmc4.
 
 ## PCA and Visualization
 ```{r}
