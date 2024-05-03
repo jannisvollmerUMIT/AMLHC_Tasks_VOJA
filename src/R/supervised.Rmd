@@ -5,6 +5,12 @@ date: "2024-05-03"
 output: html_document
 ---
 
+# Installation of needed packages
+```{r}
+  install.packages("caret")
+  require(caret)
+```
+
 # Regression
 
 ```{r}
@@ -27,5 +33,11 @@ output: html_document
 
 ### plotting of linear model
 ```{r}
-  # plotting placeholder (Step 5 in tutorial)
+  # plotting placeholder (Step 5 in tutorial) -> to do
+```
+
+## Training the model
+```{r}
+  fitControl <- trainControl(method= "cv", number = 10)
+  lmFit <- train(heartdisease ~ ., data=heart_data, method="lm", trControl=fitControl)
 ```
