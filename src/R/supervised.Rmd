@@ -18,3 +18,9 @@ output: html_document
   plot(heartdisease ~ biking, data=heart_data)
   plot(heartdisease ~ smoking, data=heart_data)
 ```
+
+## Linear model
+```{r}
+  hd_lm <- lm(heartdisease ~ biking + smoking, data=heart_data)
+  summary(hd_lm)
+```
