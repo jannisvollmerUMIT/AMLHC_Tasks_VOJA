@@ -24,3 +24,8 @@ output: html_document
   hd_lm <- lm(heartdisease ~ biking + smoking, data=heart_data)
   summary(hd_lm)
 ```
+
+### plotting of linear model
+```{r}
+  # plotting placeholder (Step 5 in tutorial)
+```
