@@ -9,4 +9,12 @@ output: html_document
 
 ```{r}
   heart_data <- read.csv("../data sets/heartdata.csv", row.names = 1)
+  cor(heart_data$biking, heart_data$smoking)
+  plot(heart_data$biking, heart_data$smoking)
+  hist(heart_data$biking)
+```
+
+```{r}
+  plot(heartdisease ~ biking, data=heart_data)
+  plot(heartdisease ~ smoking, data=heart_data)
 ```
