@@ -39,5 +39,22 @@ output: html_document
 ## Training the model
 ```{r}
   fitControl <- trainControl(method= "cv", number = 10)
-  lmFit <- train(heartdisease ~ ., data=heart_data, method="lm", trControl=fitControl)
+  lmFit <- train(heartdisease ~ ., data=heart_data, method="lm", trControl=fitControl, preProc=c("center", "scale"))
+  lmFit
+```
+
+# Classification
+
+```{r}
+  library(foreign)
+  diabetes_data <- read.arff("../data sets/diabetes.arff")
+  diaFit <- glm(class ~ ., data = diabetes_data, family="binomial")
+  summary(diaFit)
+  
+  #add plotting
+```
+
+```{r}
+  glmFit <- train(class ~ ., data=diabetes_data, method="glm", trControl=fitControl, preProc=c("center", "scale"))
+  glmFit
 ```
