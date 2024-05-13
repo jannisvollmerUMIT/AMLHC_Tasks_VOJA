@@ -34,7 +34,6 @@ output: html_document
 ### plotting of linear model
 ```{r}
   plot(hd_lm)
-  # plotting placeholder (Step 5 in tutorial) -> to do
 ```
 
 ## Training the model
@@ -52,7 +51,7 @@ output: html_document
   diaFit <- glm(class ~ ., data = diabetes_data, family="binomial")
   summary(diaFit)
   
-  #add plotting
+  plot(diaFit)
 ```
 
 ```{r}
