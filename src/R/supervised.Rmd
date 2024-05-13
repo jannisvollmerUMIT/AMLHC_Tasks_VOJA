@@ -33,6 +33,7 @@ output: html_document
 
 ### plotting of linear model
 ```{r}
+  plot(hd_lm)
   # plotting placeholder (Step 5 in tutorial) -> to do
 ```
 
