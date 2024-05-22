@@ -76,4 +76,22 @@ To get a realistic estimate of performance after hyperparameter tuning, create a
   y_test <- y[-inTrain]
 ```
 
+### Train the model
+#### By varying parameter mtry from 2 to 8, define a tuning grid for a random forest classifier.
+
+```{r}
+  featVar <- apply(X_train,2,var)
+```
+
+```{r}
+  trControl <- trainControl(method="cv", number=10)
+  model_rf <- train(X_train, y_train, method="rf", preProcess=c("center", "scale"), trainControl=trControl)
+  model_rf
+```
+
+```{r}
+  vi <- varImp(model_rf)
+  plot(vi)
+```
+
 
