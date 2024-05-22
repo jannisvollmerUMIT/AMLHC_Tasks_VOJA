@@ -7,6 +7,7 @@ output: html_document
 
 ```{r}
     require(caret)
+    require(foreign)
 ```
 
 # Task 4.3
@@ -32,4 +33,23 @@ Creating a seperate test data set to get a realistic estimate of the performance
   y_train <- y[inTrain]
   x_test <- X[inTrain,]
   y_test <- y[-inTrain]
+```
+
+### Train the model
+#### Define a tuning grid for a random forest classifier by varying parameter mtry from 2 to 8
+
+```{r}
+  featVar <- apply(X_train,2,var)
+```
+
+
+```{r}
+  trControl <- trainControl(method="cv", number=10)
+  model_rf <- train(X_train, y_train, method="rf", trainControl=trControl)
+  model_rf
+```
+
+```{r}
+  vi <- varImp(model_rf)
+  plot(vi)
 ```
