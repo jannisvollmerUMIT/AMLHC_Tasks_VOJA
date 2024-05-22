@@ -25,7 +25,7 @@ output: html_document
 ```
 
 ### Divide dataset into training and test data set
-Creating a seperate test data set to get a realistic estimate of the performance after hyperparameter tuning.
+To get a realistic estimate of performance after hyperparameter tuning, create a separate test data set.
 ```{r}
   inTrain <- createDataPartition(y, p=0.75, list = FALSE)
   
@@ -36,7 +36,7 @@ Creating a seperate test data set to get a realistic estimate of the performance
 ```
 
 ### Train the model
-#### Define a tuning grid for a random forest classifier by varying parameter mtry from 2 to 8
+#### By varying parameter mtry from 2 to 8, define a tuning grid for a random forest classifier.
 
 ```{r}
   featVar <- apply(X_train,2,var)
@@ -53,3 +53,4 @@ Creating a seperate test data set to get a realistic estimate of the performance
   vi <- varImp(model_rf)
   plot(vi)
 ```
+
