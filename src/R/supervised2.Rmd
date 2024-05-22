@@ -10,9 +10,9 @@ output: html_document
     require(foreign)
 ```
 
-# Task 4.3
+# Supervised Learning - Regression and hyperparameter tuning
 
-## Supervised Learning - Regression and hyperparameter tuning
+## Task 4.3
 
 ### Load data
 
@@ -53,4 +53,17 @@ To get a realistic estimate of performance after hyperparameter tuning, create a
   vi <- varImp(model_rf)
   plot(vi)
 ```
+
+## Task 4.4
+
+### Load data
+
+```{r}
+  data(BloodBrain)
+  head(bbbDescr)
+  
+  X <- bbbDescr
+  y <- logBBB
+```
+
 
