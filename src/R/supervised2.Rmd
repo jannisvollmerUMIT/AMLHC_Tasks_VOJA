@@ -4,3 +4,21 @@ author: "Jannis Vollmer"
 date: "2024-05-22"
 output: html_document
 ---
+
+```{r}
+    require(caret)
+```
+
+# Task 4.3
+
+## Supervised Learning - Regression and hyperparameter tuning
+
+### Load data
+
+```{r}
+  data(BloodBrain)
+  head(bbbDescr)
+  
+  X <- bbbDescr
+  y <- logBBB
+```
