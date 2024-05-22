@@ -24,7 +24,7 @@ output: html_document
   y <- logBBB
 ```
 
-### Divide dataset into training and test data set
+### Divide data set into training and test data set
 To get a realistic estimate of performance after hyperparameter tuning, create a separate test data set.
 ```{r}
   inTrain <- createDataPartition(y, p=0.75, list = FALSE)
@@ -64,6 +64,16 @@ To get a realistic estimate of performance after hyperparameter tuning, create a
   
   X <- bbbDescr
   y <- logBBB
+```
+### Divide data set into training and test data set
+To get a realistic estimate of performance after hyperparameter tuning, create a separate test data set.
+```{r}
+  inTrain <- createDataPartition(y, p=0.75, list = FALSE)
+  
+  X_train <- X[inTrain,]
+  y_train <- y[inTrain]
+  x_test <- X[inTrain,]
+  y_test <- y[-inTrain]
 ```
 
 
