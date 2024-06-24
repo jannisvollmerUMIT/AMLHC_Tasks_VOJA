@@ -120,8 +120,6 @@ The evaluation of feature importance allows to understand which variables contri
 # Get feature importance using varImp
 importance <- varImp(rf_model)
 
-importance
-
 # Plot feature importance
 plot(importance, top = 18)
 ```
