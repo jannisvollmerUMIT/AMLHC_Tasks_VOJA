@@ -104,3 +104,12 @@ trainIndex <- createDataPartition(cirrhosis_data$Status, p = 0.8,
 dataTrain <- cirrhosis_data[ trainIndex,]
 dataTest  <- cirrhosis_data[-trainIndex,]
 ```
+
+### Train Random Forest Model
+Next, the Random Forest model is constructed and executed with the train data subset.
+```{r}
+# train a Random Forest model
+rf_model <- train(Status ~ ., data = dataTrain, method = "rf")
+rf_model
+```
+The 'rf_model' shows that the accuracy is the highest, when using the mtry=2. This means that at each split in the tree, 2 predictors are randomly chosen from the total set of predictors (17 in this case), and the best split among those 2 is used to partition the data.
