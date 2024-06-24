@@ -35,3 +35,16 @@ The following table explains what content is behind each variable in the data se
 | Platelets     | platelets per cubic (ml/1000)                                                                        | Feature|
 | Prothrombin   | prothrombin time (s)                                                                                 | Feature|
 | Stage         | histologic stage of disease (1, 2, 3, or 4)                                                          | Feature|
+
+# Analysis
+## Preprocessing
+### Load the data and first overview
+First, it is necessary to load the data set and gain a first overview of the data in it and its structure.
+
+```{r}
+# Load the dataset
+cirrhosis_data <- read.csv("../data sets/cirrhosis.csv")
+
+# Display the structure and summary of the data
+str(cirrhosis_data)
+```
