@@ -144,3 +144,16 @@ Examining the statistics by class:
 - **Class D**: Sensitivity is 72.73%, showing a good true positive rate for detecting Dead patients. Specificity is 78.12%, and PPV is 69.57%. The NPV is 80.65%.
 
 The balanced accuracy for the classes is 77.38% for C, 50.00% for CL (poor performance), and 75.43% for D. These statistics highlight the model's strengths in predicting C and D classes while pointing out significant weaknesses in predicting the CL class.
+
+### Final Prediction and evaluation
+To conclude, the prediction and evaluation process is repeated. This final evaluation ensures consistency and reliability of the results, validating the model's effectiveness.
+```{r}
+# Make final predictions
+final_rf_predictions <- predict(rf_model, dataTest)
+
+# Final evaluation
+confusionMatrix(final_rf_predictions, dataTest$Status)
+```
+The results show the same values as the first evaluation. This indicates that the model's performance is consistent.
+
+# Results and Next Steps
