@@ -127,3 +127,20 @@ plot(importance, top = 10)
 ```
 The data frame and the plot shows that the Billrubin variable and the Copper value contribute the most to the model.
 
+### Prediction and confusion matrix
+By making predictions on the test set and evaluating the model using a confusion matrix, it is possible to assess the model's accuracy, precision, recall, and other performance metrics. This step enables an understanding of how effectively the model generalises to new data.
+```{r}
+# Make predictions
+rf_predictions <- predict(rf_model, dataTest)
+
+# Evaluate the Random Forest model
+confusionMatrix(rf_predictions, dataTest$Status)
+```
+The overall accuracy of the model is 74.07%, with a 95% confidence interval ranging from 60.35% to 85.04%. This indicates that the model performs significantly better than random chance, as shown by the P-Value (0.001713). The Kappa statistic of 0.4997 suggests moderate agreement between the predicted and actual classifications.
+
+Examining the statistics by class:
+- **Class C**: Sensitivity is 82.76%, indicating a high true positive rate for detecting Censored patients. Specificity is 72.00%, meaning a good true negative rate. The Positive Predictive Value (PPV) is 77.42%, and the Negative Predictive Value (NPV) is 78.26%.
+- **Class CL**: Sensitivity is 0%, indicating the model failed to identify any patients correctly as CL. Specificity is 100%, reflecting perfect true negative predictions, but the PPV is not applicable (NaN), and the NPV is 94.44%.
+- **Class D**: Sensitivity is 72.73%, showing a good true positive rate for detecting Dead patients. Specificity is 78.12%, and PPV is 69.57%. The NPV is 80.65%.
+
+The balanced accuracy for the classes is 77.38% for C, 50.00% for CL (poor performance), and 75.43% for D. These statistics highlight the model's strengths in predicting C and D classes while pointing out significant weaknesses in predicting the CL class.
