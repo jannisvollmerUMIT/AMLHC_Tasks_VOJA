@@ -74,3 +74,10 @@ cirrhosis_data$Hepatomegaly <- factor(cirrhosis_data$Hepatomegaly)
 cirrhosis_data$Spiders <- factor(cirrhosis_data$Spiders)
 cirrhosis_data$Edema <- factor(cirrhosis_data$Edema)
 ```
+
+### Eliminate missing values
+Next, it is important to eliminate the rows with missing values to maintain the integrity of the data set. The following summary shows, that there are no more missing values (NA) anymore.
+```{r}
+cirrhosis_data <- na.omit(cirrhosis_data)
+summary(cirrhosis_data)
+```
