@@ -55,8 +55,9 @@ summary(cirrhosis_data)
 ```
 The summary of the data set shows that the 418 contained observations include the number of days from registration to outcome (N_Days), which ranges from 41 to 4795 days, with a median of 1730 days. Patient ages span from 9598 (26 years) to 28650 days (78 years), with a median of 18628 days (51 years). Serum bilirubin levels show significant variation, ranging from 0.3 to 28 mg/dl, with a median of 1.4 mg/dl. Cholesterol levels range from 120 to 1775 mg/dl, with a median of 309.5 mg/dl, but have 134 missing values. Alkaline phosphatase levels also vary widely, from 289 to 13862.4 U/liter, with a median of 1259 U/liter and 106 missing values. This overview highlights the diverse range and variability of critical clinical measurements within the patient population.
 
-### 
+### Subtract irrelevant variables
+As the ID variable and the N_Days variable are not classified as features, they should be excluded from the data set to prepare it for the further analysis:
 ```{r}
-data <- subset(data, select = -ID)
-data <- subset(data, select = -N_Days)
+cirrhosis_data <- subset(cirrhosis_data, select = -ID)
+cirrhosis_data <- subset(cirrhosis_data, select = -N_Days)
 ```
