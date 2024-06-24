@@ -93,3 +93,14 @@ preProcValues <- preProcess(cirrhosis_data[, c('Age', 'Bilirubin', 'Cholesterol'
 cirrhosis_data_normalized <- predict(preProcValues, cirrhosis_data[, c('Age', 'Bilirubin', 'Cholesterol', 'Albumin', 'Copper', 'Alk_Phos', 'SGOT', 'Tryglicerides', 'Platelets', 'Prothrombin')])
 cirrhosis_data <- cbind(cirrhosis_data[, -c(which(names(cirrhosis_data) %in% c('Age', 'Bilirubin', 'Cholesterol', 'Albumin', 'Copper', 'Alk_Phos', 'SGOT', 'Tryglicerides', 'Platelets', 'Prothrombin')))], cirrhosis_data_normalized)
 ```
+
+## Random Forest Model
+### Split data in training and test set
+The data set have to be split in training and test set in order to evaluate the models performance on unseen data. Setting a seed is an effective method to ensure the reproducibility of the results. The training set is used to train the model, while the test set is used to evaluate its performance.
+```{r}
+set.seed(123)
+trainIndex <- createDataPartition(cirrhosis_data$Status, p = 0.8, 
+                                  list = FALSE)
+dataTrain <- cirrhosis_data[ trainIndex,]
+dataTest  <- cirrhosis_data[-trainIndex,]
+```
