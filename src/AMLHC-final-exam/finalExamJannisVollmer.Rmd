@@ -61,3 +61,16 @@ As the ID variable and the N_Days variable are not classified as features, they 
 cirrhosis_data <- subset(cirrhosis_data, select = -ID)
 cirrhosis_data <- subset(cirrhosis_data, select = -N_Days)
 ```
+
+### Convert categorical variables to factors
+To ensure an accurate model training in a later step, it is important to convert the categorical variables from the data set to factors. This leads to the fact that the algorithm treat them as categories.
+```{r}
+# Convert categorical variables to factors
+cirrhosis_data$Status <- factor(cirrhosis_data$Status)
+cirrhosis_data$Drug <- factor(cirrhosis_data$Drug)
+cirrhosis_data$Sex <- factor(cirrhosis_data$Sex)
+cirrhosis_data$Ascites <- factor(cirrhosis_data$Ascites)
+cirrhosis_data$Hepatomegaly <- factor(cirrhosis_data$Hepatomegaly)
+cirrhosis_data$Spiders <- factor(cirrhosis_data$Spiders)
+cirrhosis_data$Edema <- factor(cirrhosis_data$Edema)
+```
