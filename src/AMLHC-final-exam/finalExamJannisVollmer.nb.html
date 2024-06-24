@@ -1773,10 +1773,136 @@ instance in the data set represents a person. There are two features
 that might be considered as sensitive (Age and Gender). In the following
 sub-chapter the different variables are described with the possible
 values.</p>
+<div id="variable-description" class="section level2">
+<h2>Variable description</h2>
+<p>The following table explains what content is behind each variable in
+the data set. The target variable is the “Status”. The other ones,
+except the “ID” and “N_Days” are Feature variables.</p>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="81%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Description</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ID</td>
+<td>unique identifier</td>
+<td>Other</td>
+</tr>
+<tr class="even">
+<td>N_Days</td>
+<td>number of days between registration and the earlier of death,
+transplantation, or study analysis time in July 1986</td>
+<td>Other</td>
+</tr>
+<tr class="odd">
+<td>Status</td>
+<td>status of the patient C (censored), CL (censored due to liver tx),
+or D (death)</td>
+<td>Target</td>
+</tr>
+<tr class="even">
+<td>Drug</td>
+<td>type of drug D-penicillamine or placebo</td>
+<td>Feature</td>
+</tr>
+<tr class="odd">
+<td>Age</td>
+<td>age in days</td>
+<td>Feature</td>
+</tr>
+<tr class="even">
+<td>Sex</td>
+<td>M (male) or F (female)</td>
+<td>Feature</td>
+</tr>
+<tr class="odd">
+<td>Ascites</td>
+<td>presence of ascites N (No) or Y (Yes)</td>
+<td>Feature</td>
+</tr>
+<tr class="even">
+<td>Hepatomegaly</td>
+<td>presence of hepatomegaly N (No) or Y (Yes)</td>
+<td>Feature</td>
+</tr>
+<tr class="odd">
+<td>Spiders</td>
+<td>presence of spiders N (No) or Y (Yes)</td>
+<td>Feature</td>
+</tr>
+<tr class="even">
+<td>Edema</td>
+<td>presence of edema N (no edema and no diuretic therapy for edema), S
+(edema present without diuretics, or edema resolved by diuretics), or Y
+(edema despite diuretic therapy)</td>
+<td>Feature</td>
+</tr>
+<tr class="odd">
+<td>Bilirubin</td>
+<td>serum bilirubin (mg/dl)</td>
+<td>Feature</td>
+</tr>
+<tr class="even">
+<td>Cholesterol</td>
+<td>serum cholesterol (mg/dl)</td>
+<td>Feature</td>
+</tr>
+<tr class="odd">
+<td>Albumin</td>
+<td>albumin (gm/dl)</td>
+<td>Feature</td>
+</tr>
+<tr class="even">
+<td>Copper</td>
+<td>urine copper (ug/day)</td>
+<td>Feature</td>
+</tr>
+<tr class="odd">
+<td>Alk_Phos</td>
+<td>alkaline phosphatase (U/liter)</td>
+<td>Feature</td>
+</tr>
+<tr class="even">
+<td>SGOT</td>
+<td>SGOT (U/ml)</td>
+<td>Feature</td>
+</tr>
+<tr class="odd">
+<td>Tryglicerides</td>
+<td>tryglicerides</td>
+<td>Feature</td>
+</tr>
+<tr class="even">
+<td>Platelets</td>
+<td>platelets per cubic (ml/1000)</td>
+<td>Feature</td>
+</tr>
+<tr class="odd">
+<td>Prothrombin</td>
+<td>prothrombin time (s)</td>
+<td>Feature</td>
+</tr>
+<tr class="even">
+<td>Stage</td>
+<td>histologic stage of disease (1, 2, 3, or 4)</td>
+<td>Feature</td>
+</tr>
+</tbody>
+</table>
 <!-- rnb-text-end -->
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQU1MSEMgLSBGaW5hbCBFeGFtIC0gSmFubmlzIFZvbGxtZXIiCmF1dGhvcjogSmFubmlzIFZvbGxtZXIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBJbnRyb2R1Y3Rpb24KVGhlIGZvbGxvd2luZyBOb3RlYm9vayBhbmFseXNlcyB0aGUgZGF0YSBzZXQgIkNpcnJob3NpcyBQYXRpZW50IFN1cnZpdmFsIFByZWRpY3Rpb24iIGJ5IHRoZSBNYXlvIENsaW5pYyBmcm9tIHRoZSB5ZWFycyAxOTc0IHRvIDE5ODQuIFRoZSBxdWVzdGlvbiB0byBhbnN3ZXIgd2l0aCB0aGlzIGRhdGEgc2V0IGlzLCBpZiBpdCBpcyBwb3NzaWJsZSB0byBwcmVkaWN0IHRoZSBzdXJ2aXZhbCBzdGF0ZSBvZiBwYXRpZW50cyB3aXRoIGxpdmVyIGNpcnJob3Nlcy4gQ2lycmhvc2lzIGlzIGEgZGlzZWFzZSwgY2F1c2VkIGJ5IGxpdmVyIGRhbWFnZSBhbmQgbGVhZHMgdG8gZXh0ZW5zaXZlIHNjYXJyaW5nLiBUaGUgbWFpbiBvcmlnaW4gaXMgb2Z0ZW4gSGVwYXRpdGlzIG9yIGhlYXZ5IGFuZCBjb25zdGFudCBhbGNvaG9sIGNvbnN1bXB0aW9uLgoKIyBEZXNjcmlwdGlvbiBvZiB0aGUgZGF0YSBzZXQKVGhlIGRhdGEgc291cmNlIGlzIGEgc3R1ZHkgYnkgdGhlIE1heW8gQ2xpbmljIG9uIHByaW1hcnkgYmlsaWFyeSBsaXZlciBjaXJyaG9zaXMgKFBCQykgZnJvbSB0aGUgeWVhcnMgMTk3NCB0byAxOTg0LiBUaGUgZGF0YSBzZXQgY29uc2lzdHMgb2Ygb25lIHRhcmdldCB2YXJpYWJsZSAoU3RhdHVzKSwgMTYgRmVhdHVyZSBhbmQgMSBvdGhlciB2YXJpYWJsZXMuIEVhY2ggaW5zdGFuY2UgaW4gdGhlIGRhdGEgc2V0IHJlcHJlc2VudHMgYSBwZXJzb24uIFRoZXJlIGFyZSB0d28gZmVhdHVyZXMgdGhhdCBtaWdodCBiZSBjb25zaWRlcmVkIGFzIHNlbnNpdGl2ZSAoQWdlIGFuZCBHZW5kZXIpLiBJbiB0aGUgZm9sbG93aW5nIHN1Yi1jaGFwdGVyIHRoZSBkaWZmZXJlbnQgdmFyaWFibGVzIGFyZSBkZXNjcmliZWQgd2l0aCB0aGUgcG9zc2libGUgdmFsdWVzLg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQU1MSEMgLSBGaW5hbCBFeGFtIC0gSmFubmlzIFZvbGxtZXIiCmF1dGhvcjogSmFubmlzIFZvbGxtZXIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBJbnRyb2R1Y3Rpb24KVGhlIGZvbGxvd2luZyBOb3RlYm9vayBhbmFseXNlcyB0aGUgZGF0YSBzZXQgIkNpcnJob3NpcyBQYXRpZW50IFN1cnZpdmFsIFByZWRpY3Rpb24iIGJ5IHRoZSBNYXlvIENsaW5pYyBmcm9tIHRoZSB5ZWFycyAxOTc0IHRvIDE5ODQuIFRoZSBxdWVzdGlvbiB0byBhbnN3ZXIgd2l0aCB0aGlzIGRhdGEgc2V0IGlzLCBpZiBpdCBpcyBwb3NzaWJsZSB0byBwcmVkaWN0IHRoZSBzdXJ2aXZhbCBzdGF0ZSBvZiBwYXRpZW50cyB3aXRoIGxpdmVyIGNpcnJob3Nlcy4gQ2lycmhvc2lzIGlzIGEgZGlzZWFzZSwgY2F1c2VkIGJ5IGxpdmVyIGRhbWFnZSBhbmQgbGVhZHMgdG8gZXh0ZW5zaXZlIHNjYXJyaW5nLiBUaGUgbWFpbiBvcmlnaW4gaXMgb2Z0ZW4gSGVwYXRpdGlzIG9yIGhlYXZ5IGFuZCBjb25zdGFudCBhbGNvaG9sIGNvbnN1bXB0aW9uLgoKIyBEZXNjcmlwdGlvbiBvZiB0aGUgZGF0YSBzZXQKVGhlIGRhdGEgc291cmNlIGlzIGEgc3R1ZHkgYnkgdGhlIE1heW8gQ2xpbmljIG9uIHByaW1hcnkgYmlsaWFyeSBsaXZlciBjaXJyaG9zaXMgKFBCQykgZnJvbSB0aGUgeWVhcnMgMTk3NCB0byAxOTg0LiBUaGUgZGF0YSBzZXQgY29uc2lzdHMgb2Ygb25lIHRhcmdldCB2YXJpYWJsZSAoU3RhdHVzKSwgMTYgRmVhdHVyZSBhbmQgMSBvdGhlciB2YXJpYWJsZXMuIEVhY2ggaW5zdGFuY2UgaW4gdGhlIGRhdGEgc2V0IHJlcHJlc2VudHMgYSBwZXJzb24uIFRoZXJlIGFyZSB0d28gZmVhdHVyZXMgdGhhdCBtaWdodCBiZSBjb25zaWRlcmVkIGFzIHNlbnNpdGl2ZSAoQWdlIGFuZCBHZW5kZXIpLiBJbiB0aGUgZm9sbG93aW5nIHN1Yi1jaGFwdGVyIHRoZSBkaWZmZXJlbnQgdmFyaWFibGVzIGFyZSBkZXNjcmliZWQgd2l0aCB0aGUgcG9zc2libGUgdmFsdWVzLgoKIyMgVmFyaWFibGUgZGVzY3JpcHRpb24KVGhlIGZvbGxvd2luZyB0YWJsZSBleHBsYWlucyB3aGF0IGNvbnRlbnQgaXMgYmVoaW5kIGVhY2ggdmFyaWFibGUgaW4gdGhlIGRhdGEgc2V0LiBUaGUgdGFyZ2V0IHZhcmlhYmxlIGlzIHRoZSAiU3RhdHVzIi4gVGhlIG90aGVyIG9uZXMsIGV4Y2VwdCB0aGUgIklEIiBhbmQgIk5fRGF5cyIgYXJlIEZlYXR1cmUgdmFyaWFibGVzLgoKfCBWYXJpYWJsZSBOYW1lIHwgRGVzY3JpcHRpb24gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IFJvbGUgICB8CnwtLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tfC0tLS0tLS0tfAp8IElEICAgICAgICAgICAgfCB1bmlxdWUgaWRlbnRpZmllciAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgT3RoZXIgIHwKfCBOX0RheXMgICAgICAgIHwgbnVtYmVyIG9mIGRheXMgYmV0d2VlbiByZWdpc3RyYXRpb24gYW5kIHRoZSBlYXJsaWVyIG9mIGRlYXRoLCB0cmFuc3BsYW50YXRpb24sIG9yIHN0dWR5IGFuYWx5c2lzIHRpbWUgaW4gSnVseSAxOTg2IHwgT3RoZXIgIHwKfCBTdGF0dXMgICAgICAgIHwgc3RhdHVzIG9mIHRoZSBwYXRpZW50IEMgKGNlbnNvcmVkKSwgQ0wgKGNlbnNvcmVkIGR1ZSB0byBsaXZlciB0eCksIG9yIEQgKGRlYXRoKSAgICAgICAgICAgICAgICAgICAgICB8IFRhcmdldCB8CnwgRHJ1ZyAgICAgICAgICB8IHR5cGUgb2YgZHJ1ZyBELXBlbmljaWxsYW1pbmUgb3IgcGxhY2VibyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBGZWF0dXJlfAp8IEFnZSAgICAgICAgICAgfCBhZ2UgaW4gZGF5cyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgRmVhdHVyZXwKfCBTZXggICAgICAgICAgIHwgTSAobWFsZSkgb3IgRiAoZmVtYWxlKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IEZlYXR1cmV8CnwgQXNjaXRlcyAgICAgICB8IHByZXNlbmNlIG9mIGFzY2l0ZXMgTiAoTm8pIG9yIFkgKFllcykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBGZWF0dXJlfAp8IEhlcGF0b21lZ2FseSAgfCBwcmVzZW5jZSBvZiBoZXBhdG9tZWdhbHkgTiAoTm8pIG9yIFkgKFllcykgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgRmVhdHVyZXwKfCBTcGlkZXJzICAgICAgIHwgcHJlc2VuY2Ugb2Ygc3BpZGVycyBOIChObykgb3IgWSAoWWVzKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IEZlYXR1cmV8CnwgRWRlbWEgICAgICAgICB8IHByZXNlbmNlIG9mIGVkZW1hIE4gKG5vIGVkZW1hIGFuZCBubyBkaXVyZXRpYyB0aGVyYXB5IGZvciBlZGVtYSksIFMgKGVkZW1hIHByZXNlbnQgd2l0aG91dCBkaXVyZXRpY3MsIG9yIGVkZW1hIHJlc29sdmVkIGJ5IGRpdXJldGljcyksIG9yIFkgKGVkZW1hIGRlc3BpdGUgZGl1cmV0aWMgdGhlcmFweSkgfCBGZWF0dXJlfAp8IEJpbGlydWJpbiAgICAgfCBzZXJ1bSBiaWxpcnViaW4gKG1nL2RsKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgRmVhdHVyZXwKfCBDaG9sZXN0ZXJvbCAgIHwgc2VydW0gY2hvbGVzdGVyb2wgKG1nL2RsKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IEZlYXR1cmV8CnwgQWxidW1pbiAgICAgICB8IGFsYnVtaW4gKGdtL2RsKSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBGZWF0dXJlfAp8IENvcHBlciAgICAgICAgfCB1cmluZSBjb3BwZXIgKHVnL2RheSkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgRmVhdHVyZXwKfCBBbGtfUGhvcyAgICAgIHwgYWxrYWxpbmUgcGhvc3BoYXRhc2UgKFUvbGl0ZXIpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IEZlYXR1cmV8CnwgU0dPVCAgICAgICAgICB8IFNHT1QgKFUvbWwpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBGZWF0dXJlfAp8IFRyeWdsaWNlcmlkZXMgfCB0cnlnbGljZXJpZGVzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgRmVhdHVyZXwKfCBQbGF0ZWxldHMgICAgIHwgcGxhdGVsZXRzIHBlciBjdWJpYyAobWwvMTAwMCkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8IEZlYXR1cmV8CnwgUHJvdGhyb21iaW4gICB8IHByb3Rocm9tYmluIHRpbWUgKHMpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBGZWF0dXJlfAp8IFN0YWdlICAgICAgICAgfCBoaXN0b2xvZ2ljIHN0YWdlIG9mIGRpc2Vhc2UgKDEsIDIsIDMsIG9yIDQpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgRmVhdHVyZXw=</div>
 
 
 

@@ -9,3 +9,29 @@ The following Notebook analyses the data set "Cirrhosis Patient Survival Predict
 
 # Description of the data set
 The data source is a study by the Mayo Clinic on primary biliary liver cirrhosis (PBC) from the years 1974 to 1984. The data set consists of one target variable (Status), 16 Feature and 1 other variables. Each instance in the data set represents a person. There are two features that might be considered as sensitive (Age and Gender). In the following sub-chapter the different variables are described with the possible values.
+
+## Variable description
+The following table explains what content is behind each variable in the data set. The target variable is the "Status". The other ones, except the "ID" and "N_Days" are Feature variables.
+
+| Variable Name | Description                                                                                          | Role   |
+|---------------|------------------------------------------------------------------------------------------------------|--------|
+| ID            | unique identifier                                                                                    | Other  |
+| N_Days        | number of days between registration and the earlier of death, transplantation, or study analysis time in July 1986 | Other  |
+| Status        | status of the patient C (censored), CL (censored due to liver tx), or D (death)                      | Target |
+| Drug          | type of drug D-penicillamine or placebo                                                              | Feature|
+| Age           | age in days                                                                                          | Feature|
+| Sex           | M (male) or F (female)                                                                               | Feature|
+| Ascites       | presence of ascites N (No) or Y (Yes)                                                                | Feature|
+| Hepatomegaly  | presence of hepatomegaly N (No) or Y (Yes)                                                           | Feature|
+| Spiders       | presence of spiders N (No) or Y (Yes)                                                                | Feature|
+| Edema         | presence of edema N (no edema and no diuretic therapy for edema), S (edema present without diuretics, or edema resolved by diuretics), or Y (edema despite diuretic therapy) | Feature|
+| Bilirubin     | serum bilirubin (mg/dl)                                                                              | Feature|
+| Cholesterol   | serum cholesterol (mg/dl)                                                                            | Feature|
+| Albumin       | albumin (gm/dl)                                                                                      | Feature|
+| Copper        | urine copper (ug/day)                                                                                | Feature|
+| Alk_Phos      | alkaline phosphatase (U/liter)                                                                       | Feature|
+| SGOT          | SGOT (U/ml)                                                                                          | Feature|
+| Tryglicerides | tryglicerides                                                                                        | Feature|
+| Platelets     | platelets per cubic (ml/1000)                                                                        | Feature|
+| Prothrombin   | prothrombin time (s)                                                                                 | Feature|
+| Stage         | histologic stage of disease (1, 2, 3, or 4)                                                          | Feature|
