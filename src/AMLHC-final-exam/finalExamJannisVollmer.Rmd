@@ -6,3 +6,6 @@ output: html_notebook
 
 # Introduction
 The following Notebook analyses the data set "Cirrhosis Patient Survival Prediction" by the Mayo Clinic from the years 1974 to 1984. The question to answer with this data set is, if it is possible to predict the survival state of patients with liver cirrhoses. Cirrhosis is a disease, caused by liver damage and leads to extensive scarring. The main origin is often Hepatitis or heavy and constant alcohol consumption.
+
+# Description of the data set
+The data source is a study by the Mayo Clinic on primary biliary liver cirrhosis (PBC) from the years 1974 to 1984. The data set consists of one target variable (Status), 16 Feature and 1 other variables. Each instance in the data set represents a person. There are two features that might be considered as sensitive (Age and Gender). In the following sub-chapter the different variables are described with the possible values.
