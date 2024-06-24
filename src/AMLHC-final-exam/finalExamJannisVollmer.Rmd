@@ -112,7 +112,7 @@ Next, the Random Forest model is constructed and executed with the train data su
 rf_model <- train(Status ~ ., data = dataTrain, method = "rf")
 rf_model
 ```
-The 'rf_model' shows that the accuracy is the highest, when using the mtry=2. This means that at each split in the tree, 2 predictors are randomly chosen from the total set of predictors (17 in this case), and the best split among those 2 is used to partition the data.
+The 'rf_model' shows that the accuracy is the highest, when using the mtry=2 (about 74%). This means that at each split in the tree, 2 predictors are randomly chosen from the total set of predictors (17 in this case), and the best split among those 2 is used to partition the data.
 
 ### Get Feature importance and show it
 The evaluation of feature importance allows to understand which variables contribute the most to the model's predictions. This insight can be used for feature selection and to gain a better understanding of the underlying data patterns.
