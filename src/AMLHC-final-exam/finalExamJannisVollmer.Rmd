@@ -3,6 +3,9 @@ title: "AMLHC - Final Exam - Jannis Vollmer"
 author: Jannis Vollmer
 output: html_notebook
 ---
+```{r}
+  require(caret)
+```
 
 # Introduction
 The following Notebook analyses the data set "Cirrhosis Patient Survival Prediction" by the Mayo Clinic from the years 1974 to 1984. The question to answer with this data set is, if it is possible to predict the survival state of patients with liver cirrhoses. Cirrhosis is a disease, caused by liver damage and leads to extensive scarring. The main origin is often Hepatitis or heavy and constant alcohol consumption.
@@ -80,4 +83,13 @@ Next, it is important to eliminate the rows with missing values to maintain the 
 ```{r}
 cirrhosis_data <- na.omit(cirrhosis_data)
 summary(cirrhosis_data)
+```
+
+### Normalizing of numerical features
+As a next step the numerical features have to be normalized to contribute equally to the training process of the model later. This prevents that some features might be dominating due to higher values.
+```{r}
+# Normalize numerical features
+preProcValues <- preProcess(cirrhosis_data[, c('Age', 'Bilirubin', 'Cholesterol', 'Albumin', 'Copper', 'Alk_Phos', 'SGOT', 'Tryglicerides', 'Platelets', 'Prothrombin')], method = c("center", "scale"))
+cirrhosis_data_normalized <- predict(preProcValues, cirrhosis_data[, c('Age', 'Bilirubin', 'Cholesterol', 'Albumin', 'Copper', 'Alk_Phos', 'SGOT', 'Tryglicerides', 'Platelets', 'Prothrombin')])
+cirrhosis_data <- cbind(cirrhosis_data[, -c(which(names(cirrhosis_data) %in% c('Age', 'Bilirubin', 'Cholesterol', 'Albumin', 'Copper', 'Alk_Phos', 'SGOT', 'Tryglicerides', 'Platelets', 'Prothrombin')))], cirrhosis_data_normalized)
 ```
