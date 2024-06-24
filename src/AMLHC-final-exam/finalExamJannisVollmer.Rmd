@@ -7,13 +7,13 @@ output: html_notebook
   require(caret)
 ```
 
-# Introduction
+# 1 Introduction
 The following Notebook analyses the data set "Cirrhosis Patient Survival Prediction" by the Mayo Clinic from the years 1974 to 1984. The question to answer with this data set is, if it is possible to predict the survival state of patients with liver cirrhoses. Cirrhosis is a disease, caused by liver damage and leads to extensive scarring. The main origin is often Hepatitis or heavy and constant alcohol consumption.
 
-# Description of the data set
+# 2 Description of the data set
 The data source is a study by the Mayo Clinic on primary biliary liver cirrhosis (PBC) from the years 1974 to 1984. The data set consists of one target variable (Status), 16 Feature and 1 other variables. Each instance in the data set represents a person. There are two features that might be considered as sensitive (Age and Gender). In the following sub-chapter the different variables are described with the possible values.
 
-## Variable description
+## 2.1 Variable description
 The following table explains what content is behind each variable in the data set. The target variable is the "Status". The other ones, except the "ID" and "N_Days" are Feature variables.
 
 | Variable Name | Description                                                                                          | Role   |
@@ -39,9 +39,9 @@ The following table explains what content is behind each variable in the data se
 | Prothrombin   | prothrombin time (s)                                                                                 | Feature|
 | Stage         | histologic stage of disease (1, 2, 3, or 4)                                                          | Feature|
 
-# Analysis
-## Preprocessing
-### Load the data and first overview
+# 3 Analysis
+## 3.1 Preprocessing
+### 3.1.1 Load the data and first overview
 First, it is necessary to load the data set and gain a first overview of the data in it and its structure.
 
 ```{r}
@@ -58,14 +58,14 @@ summary(cirrhosis_data)
 ```
 The summary of the data set shows that the 418 contained observations include the number of days from registration to outcome (N_Days), which ranges from 41 to 4795 days, with a median of 1730 days. Patient ages span from 9598 (26 years) to 28650 days (78 years), with a median of 18628 days (51 years). Serum bilirubin levels show significant variation, ranging from 0.3 to 28 mg/dl, with a median of 1.4 mg/dl. Cholesterol levels range from 120 to 1775 mg/dl, with a median of 309.5 mg/dl, but have 134 missing values. Alkaline phosphatase levels also vary widely, from 289 to 13862.4 U/liter, with a median of 1259 U/liter and 106 missing values. This overview highlights the diverse range and variability of critical clinical measurements within the patient population.
 
-### Subtract irrelevant variables
+### 3.1.2 Subtract irrelevant variables
 As the ID variable and the N_Days variable are not classified as features, they should be excluded from the data set to prepare it for the further analysis:
 ```{r}
 cirrhosis_data <- subset(cirrhosis_data, select = -ID)
 cirrhosis_data <- subset(cirrhosis_data, select = -N_Days)
 ```
 
-### Convert categorical variables to factors
+### 3.1.3 Convert categorical variables to factors
 To ensure an accurate model training in a later step, it is important to convert the categorical variables from the data set to factors. This leads to the fact that the algorithm treat them as categories.
 ```{r}
 # Convert categorical variables to factors
@@ -78,14 +78,14 @@ cirrhosis_data$Spiders <- factor(cirrhosis_data$Spiders)
 cirrhosis_data$Edema <- factor(cirrhosis_data$Edema)
 ```
 
-### Eliminate missing values
+### 3.1.4 Eliminate missing values
 Next, it is important to eliminate the rows with missing values to maintain the integrity of the data set. The following summary shows, that there are no more missing values (NA) anymore.
 ```{r}
 cirrhosis_data <- na.omit(cirrhosis_data)
 summary(cirrhosis_data)
 ```
 
-### Normalizing of numerical features
+### 3.1.5 Normalizing of numerical features
 As a next step the numerical features have to be normalized to contribute equally to the training process of the model later. This prevents that some features might be dominating due to higher values.
 ```{r}
 # Normalize numerical features
@@ -94,8 +94,8 @@ cirrhosis_data_normalized <- predict(preProcValues, cirrhosis_data[, c('Age', 'B
 cirrhosis_data <- cbind(cirrhosis_data[, -c(which(names(cirrhosis_data) %in% c('Age', 'Bilirubin', 'Cholesterol', 'Albumin', 'Copper', 'Alk_Phos', 'SGOT', 'Tryglicerides', 'Platelets', 'Prothrombin')))], cirrhosis_data_normalized)
 ```
 
-## Random Forest Model
-### Split data in training and test set
+## 3.2 Random Forest Model
+### 3.2.1 Split data in training and test set
 The data set have to be split in training and test set in order to evaluate the models performance on unseen data. Setting a seed is an effective method to ensure the reproducibility of the results. The training set is used to train the model, while the test set is used to evaluate its performance.
 ```{r}
 set.seed(123)
@@ -105,7 +105,7 @@ dataTrain <- cirrhosis_data[ trainIndex,]
 dataTest  <- cirrhosis_data[-trainIndex,]
 ```
 
-### Train Random Forest Model
+### 3.2.2 Train Random Forest Model
 Next, the Random Forest model is constructed and executed with the train data subset.
 ```{r}
 # train a Random Forest model
@@ -114,7 +114,7 @@ rf_model
 ```
 The 'rf_model' shows that the accuracy is the highest, when using the mtry=2 (about 74%). This means that at each split in the tree, 2 predictors are randomly chosen from the total set of predictors (17 in this case), and the best split among those 2 is used to partition the data.
 
-### Get Feature importance and show it
+### 3.2.3 Get Feature importance and show it
 The evaluation of feature importance allows to understand which variables contribute the most to the model's predictions. This insight can be used for feature selection and to gain a better understanding of the underlying data patterns.
 ```{r}
 # Get feature importance using varImp
@@ -123,7 +123,7 @@ importance <- varImp(rf_model)
 importance
 
 # Plot feature importance
-plot(importance, top = 10)
+plot(importance, top = 18)
 ```
 The data frame and the plot shows that the Billrubin variable and the Copper value contribute the most to the model.
 
@@ -138,7 +138,7 @@ confusionMatrix(rf_predictions, dataTest$Status)
 ```
 The overall accuracy of the model is 74.07%, with a 95% confidence interval ranging from 60.35% to 85.04%. This indicates that the model performs significantly better than random chance, as shown by the P-Value (0.001713). The Kappa statistic of 0.4997 suggests moderate agreement between the predicted and actual classifications.
 
-Examining the statistics by class:
+Examining the statistics by class, the following observations can be made:
 - **Class C**: Sensitivity is 82.76%, indicating a high true positive rate for detecting Censored patients. Specificity is 72.00%, meaning a good true negative rate. The Positive Predictive Value (PPV) is 77.42%, and the Negative Predictive Value (NPV) is 78.26%.
 - **Class CL**: Sensitivity is 0%, indicating the model failed to identify any patients correctly as CL. Specificity is 100%, reflecting perfect true negative predictions, but the PPV is not applicable (NaN), and the NPV is 94.44%.
 - **Class D**: Sensitivity is 72.73%, showing a good true positive rate for detecting Dead patients. Specificity is 78.12%, and PPV is 69.57%. The NPV is 80.65%.
@@ -157,3 +157,10 @@ confusionMatrix(final_rf_predictions, dataTest$Status)
 The results show the same values as the first evaluation. This indicates that the model's performance is consistent.
 
 # Results and Next Steps
+The question if it is possible with this model to predict the Status of a patient based on the given features can in general be answered with yes. The analysis showed, that the model achieves an overall accuracy of approximately 74% with the optimal mtry value of 2. The kappa value of 0.4997 indicates, that the level of agreement between the predicted and actual value is as expected and underlines the functionality of the model. In a way it makes sense that the model cannot predict patients that are censored due to a liver transplant (Status = CL), as this procedure is dependent on much more factors than there are in this study, e.g. insurance status, position on waiting list, number of liver transplantation etc.
+
+The variable importance in chapter 3.2.3 shows, that especially the value of the Bilirubin and the urine copper are significant features that have an impact on the prediction capabilities of the model. 
+
+The next steps could be to have a look at the Features of importance (Chapter 3.2.3) and focus only on those. There can be also other models applied to further investigate the prediction accuracy.
+
+
