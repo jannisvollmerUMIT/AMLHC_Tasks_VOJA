@@ -40,10 +40,11 @@ The following table explains what content is behind each variable in the data se
 | Stage         | histologic stage of disease (1, 2, 3, or 4)                                                          | Feature|
 
 # 3 Analysis
+The analysis consists of two main parts. First the data set is preprocessed to prepare the data to be used by the second part, the Random Forest Model.
 ## 3.1 Preprocessing
+In the Preprocessing the data set is prepared, e.g. by excluding all rows with a missing value and factorize any categorical variables.
 ### 3.1.1 Load the data and first overview
 First, it is necessary to load the data set and gain a first overview of the data in it and its structure.
-
 ```{r}
 # Load the dataset
 cirrhosis_data <- read.csv("../data sets/cirrhosis.csv")
@@ -139,7 +140,7 @@ The overall accuracy of the model is 74.07%, with a 95% confidence interval rang
 
 Examining the statistics by class, the following observations can be made:
 - **Class C**: Sensitivity is 82.76%, indicating a high true positive rate for detecting Censored patients. Specificity is 72.00%, meaning a good true negative rate. The Positive Predictive Value (PPV) is 77.42%, and the Negative Predictive Value (NPV) is 78.26%.
-- **Class CL**: Sensitivity is 0%, indicating the model failed to identify any patients correctly as CL. Specificity is 100%, reflecting perfect true negative predictions, but the PPV is not applicable (NaN), and the NPV is 94.44%.
+- **Class CL**: Sensitivity is 0%, indicating the model failed to identify any patients correctly as CL. Specificity is 100%, reflecting perfect true negative predictions, but the PPV is not applicable and the NPV is 94.44%.
 - **Class D**: Sensitivity is 72.73%, showing a good true positive rate for detecting Dead patients. Specificity is 78.12%, and PPV is 69.57%. The NPV is 80.65%.
 
 The balanced accuracy for the classes is 77.38% for C, 50.00% for CL (poor performance), and 75.43% for D. These statistics highlight the model's strengths in predicting C and D classes while pointing out significant weaknesses in predicting the CL class.
